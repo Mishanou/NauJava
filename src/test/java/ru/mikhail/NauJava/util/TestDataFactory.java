@@ -1,7 +1,7 @@
 package ru.mikhail.NauJava.util;
 
 import org.springframework.stereotype.Component;
-import ru.mikhail.NauJava.entities.FileEntity;
+import ru.mikhail.NauJava.entities.File;
 import ru.mikhail.NauJava.entities.Role;
 import ru.mikhail.NauJava.entities.ShareLink;
 import ru.mikhail.NauJava.entities.User;
@@ -47,8 +47,8 @@ public class TestDataFactory {
         return userRepository.save(user);
     }
 
-    public FileEntity createFile(User uploader, String fileName, long size) {
-        FileEntity file = new FileEntity();
+    public File createFile(User uploader, String fileName, long size) {
+        File file = new File();
         file.setFileName(fileName);
         file.setFileSize(size);
         file.setContentType("application/pdf");
@@ -56,7 +56,7 @@ public class TestDataFactory {
         return fileRepository.save(file);
     }
 
-    public ShareLink createShareLink(FileEntity file) {
+    public ShareLink createShareLink(File file) {
         ShareLink link = new ShareLink();
         link.setToken(UUID.randomUUID().toString());
         link.setIsActive(true);

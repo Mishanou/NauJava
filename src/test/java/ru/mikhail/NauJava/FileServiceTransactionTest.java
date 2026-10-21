@@ -4,11 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import ru.mikhail.NauJava.entities.FileEntity;
+import ru.mikhail.NauJava.entities.File;
 import ru.mikhail.NauJava.repository.FileRepository;
-import ru.mikhail.NauJava.repository.RoleRepository;
 import ru.mikhail.NauJava.repository.ShareLinkRepository;
-import ru.mikhail.NauJava.repository.UserRepository;
 import ru.mikhail.NauJava.service.FileManagementService;
 import ru.mikhail.NauJava.util.TestDataFactory;
 
@@ -59,7 +57,7 @@ class FileServiceTransactionTest {
             // Игнорируем ожидаемое исключение для проверки отката
         }
 
-        Optional<FileEntity> found = fileRepository.findById(safeFile.getId());
+        Optional<File> found = fileRepository.findById(safeFile.getId());
         Assertions.assertTrue(found.isPresent());
     }
 }

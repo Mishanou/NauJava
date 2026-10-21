@@ -22,7 +22,7 @@ public class DownloadStat {
 
     @ManyToOne
     @JoinColumn(name = "file_id", nullable = false)
-    private FileEntity file;
+    private File file;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -40,8 +40,8 @@ public class DownloadStat {
     public String getUserAgent() { return userAgent; }
     public void setUserAgent(String userAgent) { this.userAgent = userAgent; }
 
-    public FileEntity getFile() { return file; }
-    public void setFile(FileEntity file) { this.file = file; }
+    public File getFile() { return file; }
+    public void setFile(File file) { this.file = file; }
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }

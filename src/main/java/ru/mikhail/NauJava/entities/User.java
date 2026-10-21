@@ -25,7 +25,7 @@ public class User {
     private Role role;
 
     @OneToMany(mappedBy = "uploader", cascade = CascadeType.ALL)
-    private List<FileEntity> files;
+    private List<File> files;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -42,6 +42,6 @@ public class User {
     public Role getRole() { return role; }
     public void setRole(Role role) { this.role = role; }
 
-    public List<FileEntity> getFiles() { return files; }
-    public void setFiles(List<FileEntity> files) { this.files = files; }
+    public List<File> getFiles() { return files; }
+    public void setFiles(List<File> files) { this.files = files; }
 }
