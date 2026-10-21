@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.criteria.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import ru.mikhail.NauJava.entities.FileEntity;
+import ru.mikhail.NauJava.entities.File;
 import ru.mikhail.NauJava.entities.User;
 
 import java.util.List;
@@ -20,10 +20,10 @@ public class FileRepositoryImpl implements FileRepositoryCustom {
     }
 
     @Override
-    public List<FileEntity> findByFileNameAndFileSizeGreaterThan(String fileName, Long fileSize) {
+    public List<File> findByFileNameAndFileSizeGreaterThan(String fileName, Long fileSize) {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<FileEntity> cq = cb.createQuery(FileEntity.class);
-        Root<FileEntity> root = cq.from(FileEntity.class);
+        CriteriaQuery<File> cq = cb.createQuery(File.class);
+        Root<File> root = cq.from(File.class);
 
         Predicate namePredicate = cb.equal(root.get("fileName"), fileName);
         Predicate sizePredicate = cb.greaterThan(root.get("fileSize"), fileSize);
@@ -34,12 +34,12 @@ public class FileRepositoryImpl implements FileRepositoryCustom {
     }
 
     @Override
-    public List<FileEntity> findByUploaderUsername(String username) {
+    public List<File> findByUploaderUsername(String username) {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<FileEntity> cq = cb.createQuery(FileEntity.class);
-        Root<FileEntity> root = cq.from(FileEntity.class);
+        CriteriaQuery<File> cq = cb.createQuery(File.class);
+        Root<File> root = cq.from(File.class);
 
-        Join<FileEntity, User> uploaderJoin = root.join("uploader", JoinType.INNER);
+        Join<File, User> uploaderJoin = root.join("uploader", JoinType.INNER);
 
         Predicate usernamePredicate = cb.equal(uploaderJoin.get("username"), username);
 

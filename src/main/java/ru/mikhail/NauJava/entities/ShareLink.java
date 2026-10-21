@@ -22,7 +22,7 @@ public class ShareLink {
 
     @ManyToOne
     @JoinColumn(name = "file_id", nullable = false)
-    private FileEntity file;
+    private File file;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -36,6 +36,6 @@ public class ShareLink {
     public Boolean getIsActive() { return isActive; }
     public void setIsActive(Boolean isActive) { this.isActive = isActive; }
 
-    public FileEntity getFile() { return file; }
-    public void setFile(FileEntity file) { this.file = file; }
+    public File getFile() { return file; }
+    public void setFile(File file) { this.file = file; }
 }

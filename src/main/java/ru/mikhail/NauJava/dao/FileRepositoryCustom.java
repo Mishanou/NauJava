@@ -1,10 +1,10 @@
 package ru.mikhail.NauJava.dao;
 
-import ru.mikhail.NauJava.entities.FileEntity;
+import ru.mikhail.NauJava.entities.File;
 import java.util.List;
 
 public interface FileRepositoryCustom {
-    List<FileEntity> findByFileNameAndFileSizeGreaterThan(String fileName, Long fileSize);
+    List<File> findByFileNameAndFileSizeGreaterThan(String fileName, Long fileSize);
 
-    List<FileEntity> findByUploaderUsername(String username);
+    List<File> findByUploaderUsername(String username);
 }

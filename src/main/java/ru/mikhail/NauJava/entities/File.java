@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "files")
-public class FileEntity {
+public class File {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
