@@ -12,6 +12,6 @@ import java.util.List;
 public interface FileRepository extends CrudRepository<File, Long> {
     List<File> findByFileNameAndFileSizeGreaterThan(String fileName, Long fileSize);
 
-    @Query("SELECT f FROM FileEntity f WHERE f.uploader.username = :username")
+    @Query("SELECT f FROM File f WHERE f.uploader.username = :username")
     List<File> findByUploaderUsername(@Param("username") String username);
 }
