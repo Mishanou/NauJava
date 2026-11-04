@@ -9,13 +9,15 @@
 
 <h1>File Sharing Platform</h1>
 
-<p>
-  Добро пожаловать!
-</p>
+<p>Добро пожаловать!</p>
 
-<p>
-  Вы успешно авторизовались.
-</p>
+<p>Вы успешно авторизовались.</p>
+
+<form th:action="@{/reports/generate}" method="post">
+  <button type="submit">Сформировать отчёт</button>
+</form>
+
+<br>
 
 <form th:action="@{/logout}" method="post">
   <button type="submit">Выйти из системы</button>

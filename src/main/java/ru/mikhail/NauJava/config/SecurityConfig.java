@@ -21,22 +21,16 @@ public class SecurityConfig {
     }
 
     @Bean
-    public AuthenticationProvider authenticationProvider(
-            UserDetailsService userDetailsService,
-            PasswordEncoder passwordEncoder) {
-
-        var provider =
-                new DaoAuthenticationProvider(userDetailsService);
-
+    public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService,
+                                                         PasswordEncoder passwordEncoder) {
+        var provider = new DaoAuthenticationProvider(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder);
-
         return provider;
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(
-            HttpSecurity http,
-            AuthenticationProvider authenticationProvider) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+                                                   AuthenticationProvider authenticationProvider) throws Exception {
 
         http.authenticationProvider(authenticationProvider)
             .authorizeHttpRequests(auth -> auth
