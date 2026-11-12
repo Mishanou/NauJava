@@ -1,5 +1,6 @@
 package ru.mikhail.NauJava;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import ru.mikhail.NauJava.util.TestDataFactory;
 import java.util.Optional;
 
 @SpringBootTest
+@Transactional
 class FileServiceTransactionTest {
 
     @Autowired
