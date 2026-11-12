@@ -32,10 +32,12 @@ public class TestDataFactory {
     }
 
     public Role createRole() {
-        Role role = new Role();
-        role.setName("ROLE_" + UUID.randomUUID());
-        role.setCode("USER");
-        return roleRepository.save(role);
+        return roleRepository.findByCode("USER").orElseGet(() -> {
+            Role role = new Role();
+            role.setName("ROLE_USER");
+            role.setCode("USER");
+            return roleRepository.save(role);
+        });
     }
 
     public User createUser(Role role) {
